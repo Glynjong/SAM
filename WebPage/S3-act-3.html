@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta id="testMeta">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="dist/jquery.js"></script>
+    <script src="dist/html2canvas.js"></script>
+    <!-- add a check for mobile to rotate their phones -->
+    <style>
+        @media screen and (orientation: portrait) {
+    #promptOverlay {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,.9);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    #promptOverlay>div{
+        background-image: url('Assets/general/PromptScreen.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 50vw;
+        height: 53vw;
+        position: absolute;
+        top: 25%;
+        left: 52%;
+        transform: translate(-50%, -50%);
+    }
+}
+    </style>
+  </head>
+  <body class="w-100" >
+      <!-- everything here is used to store and be used for the download of canvas -->
+    <div class="row m-0 w-100" style="position: absolute; opacity: 0; pointer-events:none;width: 100vw;overflow: hidden;">
+        <canvas id="qn1" width="600" height="200"></canvas>
+        <canvas id="qn2" width="600" height="200"></canvas>
+        <div id="canvasImg3" class="col"></div>
+        <div id="canvasImg4" class="col"></div>
+        <div class="px-5" id="name" style="font-size: 30px;color: #463383;font-weight: 800;"></div>
+        <div class="px-5" id="uClass" style="font-size: 24px;color: #463383;"></div>
+          <div id="canvasImg" class="col-6"></div>
+          <div id="canvasImg2" class="col-6"></div>
+    </div>
+    <!-- instructions at the start of the page -->
+    <section id="freeplay" class="instructions">
+        <div style="height: 100vh;">
+            <img src="Assets/act-3/step1.jpg" alt="freeplay step 1" width="100%" height="100%" />
+            <button type="button" onclick="nextSteps(this);"  class = "instr-btn">
+                <img src="Assets/act-3/stepnext.png" alt="Next button" />
+            </button>
+        </div>
+        <div style="height: 100vh;display: none;">
+            <img src="Assets/act-3/step2.jpg" alt="freeplay step 2" width="100%" height="100%" />
+            <button type="button" onclick="nextSteps(this);"  class = "instr-btn">
+                <img src="Assets/act-3/stepnext.png" alt="Next button" />
+            </button>
+        </div>
+        <div style="height: 100vh;display: none;">
+            <img src="Assets/act-3/step3.jpg" alt="freeplay step 3" width="100%" height="100%" />
+            <button type="button" onclick="nextSteps(this);"  class = "instr-btn">
+                <img src="Assets/act-3/stepnext.png" alt="Next button" />
+            </button>
+        </div>
+        <div style="height: 100vh;display: none;">
+            <img src="Assets/act-3/step4.jpg" alt="freeplay step 4" width="100%" height="100%" />
+            <button type="button" onclick="nextSteps(this);"  class = "instr-btn">
+                <img src="Assets/act-3/stepnext.png" alt="Next button" />
+            </button>
+        </div>  
+        <div style="height: 100vh;display: none;">
+            <img src="Assets/act-3/step5.jpg" alt="freeplay step 5" width="100%" height="100%" />
+            <button type="button" onclick="nextSteps(this);"  class = "instr-btn">
+                <img src="Assets/act-3/stepnext.png" alt="Next button" />
+            </button>
+        </div>
+        <div style="height: 100vh;display: none;">
+            <img src="Assets/act-3/step6.jpg" alt="freeplay step 6" width="100%" height="100%" />
+            <button type="button" onclick="closeStep(this);" class = "instr-btn-close" href="#canvas">
+                <img src="Assets/act-3/stepnext.png" alt="Close button" />
+            </button>
+        </div>
+    </section>
+    <!-- canvas -->
+    <section id="gameplay" style="height: 100vh;width: 100vw;display: none;background-image: url(Assets/act-3/bgimage.svg);background-repeat: no-repeat;">
+    <!-- main canvas -->
+    <canvas id="canvas" style="border:1px solid #000000;left: 10px!important;">Your browser doesn't support canvas</canvas>
+    <!-- canvas for reset -->
+    <canvas id="canvas-blank" style="display: none;"></canvas>
+    <!-- buttons -->
+    <div class="mx-auto align-items-end" style="padding-bottom:15px;  display: flex;justify-content: space-between; max-width: 600px;height:100%" id="canvas">
+        <img onclick="showSteps()" src="Assets/act-3/infobtn.svg">
+        <img onclick="undo()" src="Assets/act-3/undobtn.svg">
+        <img onclick="redo()" src="Assets/act-3/redobtn.svg">
+        <img onclick="reset()" src="Assets/act-3/trashbtn.svg">
+        <img onclick="qn1()" src="Assets/act-3/donebtn.svg">
+    </div>
+    <!-- canvas to put all the pieces together for download -->
+        <canvas id="canvas-dl" style="display: none;"></canvas>
+        <!-- sidebar main section container -->
+    <section class="row position-fixed justify-content-center" style="left: 0%;width: 24%;top:0;overflow: hidden;height: 100vh;" id="noScroll">
+        <!-- sidebar images -->
+    <img src="Assets/act-3/sidebar.png" class="h-100 w-100 position-absolute" style="pointer-events: none;top:0;min-height: 490px;left: 0;" id="sidebar1_img">
+    <img src="Assets/act-3/sidebar2.png" class="h-100 w-100 position-absolute" style="pointer-events: none;top:0;min-height: 490px;left: 0;display: none;" id="sidebar2_img">
+    <img src="Assets/act-3/sidebar3.png" class="h-100 w-100 position-absolute" style="pointer-events: none;top:0;min-height: 490px;left: 0;display: none;" id="sidebar3_img"> 
+    <img src="Assets/act-3/sidebar4.png" class="h-100 w-100 position-absolute" style="pointer-events: none;top:0;min-height: 490px;left: 0;display: none;" id="sidebar4_img">
+    <!-- change tabs function -->
+            <div class="h-100 row position-absolute justify-content-center" style="left: 0%;width: 100%;top:0">
+                <div onclick="changeTab(event)" class="col-12" style="height: 20%;cursor: pointer;min-height: 95px;" id="1"></div>
+                <div onclick="changeTab(event)" class="col-12" style="height: 20%;cursor: pointer;min-height: 95px" id="2"></div>
+                <div onclick="changeTab(event)" class="col-12" style="height: 20%;cursor: pointer;min-height: 95px" id="3"></div>
+                <div onclick="changeTab(event)" class="col-12" style="height: 20%;cursor: pointer;min-height: 95px" id="4"></div>
+                <div class="col-12" style="height: 20%;"></div>
+            </div>
+            <!-- sidebar 1 -->
+                <section class="h-100" id="sidebar1">
+                <div class="row pt-3 pl-3 position-relative h-100 overflow-auto" style="z-index:999;width: 85%;" id="noScroll">
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="eyelid" src="Assets/act-3/eyelid.svg">
+                    </div>
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="lips" src="Assets/act-3/lips.svg" >
+                    </div>
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="cresent" src="Assets/act-3/cresent.svg" >
+                    </div>
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="ring" src="Assets/act-3/ring.svg" >
+                    </div>
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="yellowtriangle" src="Assets/act-3/yellowtriangle.svg" >
+                    </div>
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="cloud" src="Assets/act-3/cloud.svg" >
+                    </div>
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" class="mx-auto" style="height:auto ;max-width:50% ;" id="triangle" src="Assets/act-3/triangle.svg" >
+                    </div>
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)"  style="width:auto ;max-height:100% ;" id="swiggle" src="Assets/act-3/swiggle.svg" >
+                    </div>
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="width:auto ;max-height:50% ;" id="line" src="Assets/act-3/line.svg" >
+                    </div>
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="rectangle" src="Assets/act-3/rectangle.svg" >
+                    </div>
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="eclipse" src="Assets/act-3/eclipse.svg" >
+                    </div>
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="polygon" src="Assets/act-3/polygon.svg" >
+                    </div>
+                </div>
+            </section>
+                        <!-- sidebar 2 -->
+            <section class="h-100" id="sidebar2" style="display: none;">
+            <div class="row pt-3 pl-3 position-relative h-100 overflow-auto" style="z-index:999;width: 85%;" id="noScroll">
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;"  id="Toothpaste" src="Assets/act-3/Toothpaste.svg" >
+                    </div>
+                 <div class="col-12 text-center mb-5">
+                    <img onclick="createShape(event)"  style="height:auto ;max-width:30% ;" id="shampoo" src="Assets/act-3/shampoo.svg" >
+                </div>
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;"  id="slippers" src="Assets/act-3/slippers.svg" >
+                    </div>
+                    
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;"  id="chips" src="Assets/act-3/chips.svg" >
+                    </div>
+                    
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;"  id="noodles" src="Assets/act-3/noodles.svg" >
+                    </div>
+                    
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;"  id="broom" src="Assets/act-3/broom.svg" >
+                    </div>
+                    
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;"  id="biscuit" src="Assets/act-3/biscuit.svg" >
+                    </div>
+                    
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;"  id="bucket" src="Assets/act-3/bucket.svg" >
+                    </div>
+                </div>
+            </section>
+                        <!-- sidebar 3 -->
+            <section class="h-100" id="sidebar3" style="display: none;">
+            <div class="row pt-3 pl-3 position-relative h-100 overflow-auto" style="z-index:999;width: 85%;" id="noScroll">
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="max-height:auto ;max-width:50%;"id="p.smile" src="Assets/act-3/p.smile.svg" >
+                    </div>
+                 <div class="col-12 text-center mb-5" >
+                    <img onclick="createShape(event)" style="max-height:auto ;max-width:50% ;" id="p.eye" src="Assets/act-3/p.eye.svg" >
+                </div>
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="p.dot" src="Assets/act-3/p.dot.svg" >
+                    </div>
+                    
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="p.ear" src="Assets/act-3/p.ear.svg" >
+                    </div>
+                    
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="p.triangle" src="Assets/act-3/p.triangle.svg" >
+                    </div>
+                    
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="p.oval" src="Assets/act-3/p.oval.svg" >
+                    </div>
+                    
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="p.rectangle" src="Assets/act-3/p.rectangle.svg" >
+                    </div>
+                    
+                    <div class="col-12 text-center mb-5">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="p.frown" src="Assets/act-3/p.frown.svg" >
+                    </div>
+                </div>
+            </section>
+                        <!-- sidebar 4 -->
+            <section id="sidebar4" style="display: none;">
+                <div class="row pt-3 pl-3 position-relative h-100 overflow-auto" style="z-index:999;width: 85%;" id="noScroll">
+                    <div class="col-12 text-center mb-5" style="display: none;" id="bonus">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:100% ;" id="bouns" src="Assets/act-3/bouns.svg" >
+                    </div>
+                    <div class="col-12 text-center" style="display: none;" id="bonus2">
+                        <img onclick="createShape(event)" style="height:auto ;max-width:50% ;" id="bouns2" src="Assets/act-3/bouns2.svg" >
+                    </div>
+                </div>
+            </section>
+</section>
+</section>
+<!-- question 1 page -->
+    <section id="question-1" class="position-relative" style="display: none;height: 100vh;">
+        <div class="text-right col-12 w-100" id="logo" style="padding-right: 35px;padding-top: 35px;">
+            <img src="./Assets/general/logo.svg" class="">
+        </div>
+        <div class="row justify-content-center s3-qn mx-auto h-50 pt-5 pt-sm-0">
+            <p class="col-12 text-center qn-text1">Tell us</p>
+            <p class="col-12 text-center bold qn-text2">1. Who is this person? <br>2. What makes this person important to you? <br>3. What did you think or feel while making this artwork?</p>
+            <textarea style="border:dashed 2px #3D9CD7;min-height: 250px;" class="w-100 h-100 qn-input" 
+            id="qn-1"  maxlength="300"></textarea>
+            <p class="col-12 text-right px-0 qn-max">Max. 300 characters</p>
+            <div class="container text-center"><a class="pb-5" onclick="qn2()"><img src="Assets/general/submitbtn.png"></a></div>
+        </div>
+        <img src="Assets/act-3/qn-bg-1.svg" class="position-absolute d-none d-lg-block" style="bottom: 5%;">
+        <img src="Assets/act-3/qn-bg-2.svg" class="position-absolute d-none d-lg-block" style="right: 5%;bottom: 20%;">
+        <div class="overflow-hidden position-relative pt-3" style="width: 220px;height: 156px;"><img src="Assets/act-3/qn-bg-1.svg" class="position-absolute d-block d-lg-none" style="left: -20%;"></div>
+        <div class="ml-auto overflow-hidden position-absolute" style="width: 126px;height: 120px;right: 0;bottom: 10%;"><img src="Assets/act-3/qn-bg-2.svg" class="position-absolute d-block d-lg-none" style="right: -40%;"></div>
+    </section>
+    <!-- question 2 page -->
+    <section id="question-3" class="position-relative" style="display: none;height: 100vh;">
+        <div class="text-right col-12 w-100" id="logo" style="padding-right: 2%;padding-top: 2%;">
+            <img src="./Assets/general/logo.svg" class="">
+        </div>
+        <div class="row justify-content-center mx-auto h-50 s3-qn pt-5 pt-sm-0">
+            <p class="col-12 text-center qn-text1">Share with us</p>
+            <p class="col-12 text-center bold qn-text2">What more would you like to learn about contemporary art and why?</p>
+            <textarea style="border:dashed 2px #3D9CD7;min-height: 250px;" class="w-100 h-100 qn-input" 
+            id="qn-3"  maxlength="300"></textarea> 
+            <p class="col-12 text-right px-0 qn-max">Max. 300 characters</p>
+            <a class="pt-5" onclick="dl_page()"><img src="Assets/general/submitbtn.png"></a>
+        </div>
+        <img src="Assets/act-3/qn-bg-1.svg" class="position-absolute d-none d-lg-block" style="bottom: 5%;">
+        <img src="Assets/act-3/qn-bg-2.svg" class="position-absolute d-none d-lg-block" style="right: 5%;bottom: 20%;">
+        <div class="overflow-hidden position-relative pt-3" style="width: 220px;height: 156px;"><img src="Assets/act-3/qn-bg-1.svg" class="position-absolute d-block d-lg-none" style="left: -20%;"></div>
+        <div class="ml-auto overflow-hidden position-absolute" style="width: 126px;height: 120px;right: 0;bottom: 10%;"><img src="Assets/act-3/qn-bg-2.svg" class="position-absolute d-block d-lg-none" style="right: -40%;"></div>
+    </section>
+    <!-- download page -->
+    <section id="dl-page" style="width: 100%;height: 100vh;display: none;">
+        <div class="text-right col-12 w-100" id="logo" style="padding-right: 2%;padding-top: 2%;">
+            <img src="./Assets/general/logo.svg" class="">
+        </div>
+        <img src="Assets/act-3/dl-tl.png" class="position-absolute" style="top: 0;">
+        <!-- <img src="Assets/act-3/dl-br.png"> -->
+        <div class="row justify-content-center mx-auto h-50 s3-qn pt-5 pt-sm-0">
+            <p class="col-12 text-center mb-0 bold dl-title">Well done!</p>
+            <p class="col-12 text-center bold dl-title2">You have completed your first contemporary artwork!</p>
+            <p class="col-12 text-center pt-2 dl-text">Download your artwork and share it with your family and friends!</p>
+        <div class="container" style="display: flex;flex-direction: column;">            
+            <img src="Assets/general/loading.gif" alt="Your Artwork" class="artwork col-12 pt-3 d-flex" id="artworkImg" style="max-width: 90%;max-height: 90vh;border: 1px solid black;align-items: flex-start;"/>
+        </div>
+            <a class="py-5 col-12 text-center" href="" title="Download Artwork" id="artworkLink" download>
+                <img src="Assets/act-3/dlbtn.png">
+            </a>
+        </div>
+        <img src="Assets/act-3/qn-bg-1.svg" class="position-absolute d-none d-lg-block" style="bottom: 5%;">
+        <img src="Assets/act-3/qn-bg-2.svg" class="position-absolute d-none d-lg-block" style="right: 5%;bottom: 20%;">
+        <div class="overflow-hidden position-relative pt-3" style="width: 220px;height: 156px;"><img src="Assets/act-3/qn-bg-1.svg" class="position-absolute d-block d-lg-none" style="left: -20%;"></div>
+        <div class="ml-auto overflow-hidden position-absolute" style="width: 126px;height: 120px;right: 0;bottom: 10%;"><img src="Assets/act-3/qn-bg-2.svg" class="position-absolute d-block d-lg-none" style="right: -40%;"></div>
+    </section>
+    <!-- <a onclick="dl_Img()" class="mx-auto position-absolute" style="right: 0;" title="Download Artwork" id="artworkLink" download>test</a> -->
+    <!-- <a id="download" class="mx-auto position-absolute" style="right: 0;" href="" onclick="download_img(this);" download>Download to myImage.jpg</a> -->
+    <!-- <a href="" title="Download Artwork" id="artworkLink" download style="position: absolute;right: 0;">
+        <button type="button" class = "pop-btn"><img src="images/btn-yes.png" alt="proceed" onclick="download();" /></button>
+        <img src="images/download/btn-dl.png" alt="Download button" />
+    </a> -->
+    <img src="Assets/general/logo.svg" style="max-width: 150px;max-height: 40px;top: 3%;right: 3%;display: none;" class="position-absolute img-fluid" id="logoC">
+    <script>
+        // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+        let vh = window.innerHeight * 0.01;
+        // Then we set the value in the --vh custom property to the root of the document
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+        // We listen to the resize event
+        window.addEventListener('resize', () => {
+        // We execute the same script as before
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });   
+     </script>
+    <script src="./dependencies/fabric/dist/fabric.js"></script>
+    <script src="./dist/fabricHistory.js"></script>
+    <script src="./dist/customiseControls.js"></script>
+    <script src="./dist/localStorage.js"></script>
+    <script src="js/activity-3.js"></script>
+    <!-- <script>
+    window.onload = function() {
+        $(document).ready(function () {
+            showSteps()
+        });
+        // initialSteps()
+        // $("#freeplay").show();
+        console.log("loading showsteps")
+    };
+    </script> -->
+    <!-- <script>
+        function download() {
+            var mode = $("#gameplay").data("mode");
+            var c = document.getElementById("canvas-dl");
+            var ctx = c.getContext('2d');
+            c.width = 2407;
+            c.height = 1355;
+
+            var bgimg = new Image();
+            bgimg.src = "./Assets/pre-act-2-instruc/bg.svg";
+            bgimg.onload = function(){
+                ctx.drawImage(bgimg, 0, 0);
+                // var window.canvas = $("#gameplay #canvas");
+                console.log(window.canvas)
+                console.log(ctx, canvas, window.canvas);
+                var dataURL = window.canvas[0].toDataURL({
+                    format: 'png',
+                    multiplier: 1
+                });
+                var artwork = new Image();
+                artwork.src = dataURL;
+                artwork.onload = function(){
+                    ctx.drawImage(artwork, 484, 58, 1440, 1080);
+                    var dataURL = c.toDataURL({
+                        format: 'png',
+                        multiplier: 1
+                    });
+                    //console.log(dataURL);
+                    $("#artworkImg").attr("src", dataURL);
+                    $("#artworkLink").attr("href", dataURL);
+                    $("#artworkLink").on('click', function (e) {
+                        setTimeout(function() {
+                            window.open('https://forms.nationalgallery.sg/a/TakeSurvey?tt=uF0y%2BWtOpz4%3D', '_blank');
+                        }, 2000);
+                    });
+                }
+            }
+            $("#gameplay").hide();
+            $("#download").show();
+        }
+    </script> -->
+    <script>
+    $(document).on('keyup', function (e) {
+        if (e.keyCode === 13 ) {
+            console.log($(window).width())
+            console.log($(window).height())
+        }
+    })
+    </script>
+  </body>
+  <div id = "promptOverlay">
+    <div></div>
+  </div>
+</html>

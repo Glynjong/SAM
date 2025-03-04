@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="146" height="45.56" viewBox="0 0 146 45.56">
+  <g id="Group_1260" data-name="Group 1260" transform="translate(-610 -566.22)">
+    <g id="Group_1066" data-name="Group 1066" transform="translate(466 -0.78)">
+      <g id="Rectangle_213" data-name="Rectangle 213" transform="translate(144 567)" fill="#fff" stroke="#e234a6" stroke-width="3">
+        <rect width="146" height="45.56" stroke="none"/>
+        <rect x="1.5" y="1.5" width="143" height="42.56" fill="none"/>
+      </g>
+      <text id="Submit" transform="translate(153 576.78)" fill="#e234a6" font-size="21" font-family="Poppins-Medium, Poppins" font-weight="500"><tspan x="26.137" y="22">Submit</tspan></text>
+    </g>
+  </g>
+</svg>

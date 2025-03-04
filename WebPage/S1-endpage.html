@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="dist/jquery.js"></script>
+  </head>
+  <body >
+   <div class="text-right col-12 w-100" id="logo" style="padding-right: 35px;padding-top: 35px;">
+      <img src="./Assets/general/logo.svg" class="">
+  </div>
+  <img src="Assets/act-1/end-tl.png" class="position-absolute" style="top: 0%;left: 0;">
+     <div class="activity end position-relative">
+        <div class="row w-100 h-100 justify-content-center m-0" style="padding-top: 3vh;">
+               <div class="col-12 text-center question-num pt-5 pt-sm-0" style="max-height: 90px;">
+                   <p class="m-0 endText1 bold pt-2 pt-sm-0" >
+                   Well done!
+                   </p>
+                   <p class="m-0 endText2 bold pb-3">
+                       You completed chapter 1
+                   </p>
+                   <div class="position-relative row scoreboard mx-auto">
+                     <p class="float-left text-center m-0 py-2 pl-0 pl-sm-4 col-6" style="min-width: 170px;">
+                        Pre-activity 1
+                     </p>
+                     <div class="pt-2 pl-0 pl-sm-2 col px-0" style="min-width: 170px;">
+                        <img class="pr-3" id="star1" src="Assets/act-1/whitestar.svg">
+                        <img class="pr-3" id="star2" src="Assets/act-1/whitestar.svg">
+                        <img class="pr-3" id="star3" src="Assets/act-1/whitestar.svg">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-12 text-center" style="padding-top: 6rem;">
+                   <p class="endText3 pt-2 pt-sm-0">
+                       You unlocked 12 coloured shapes!
+                   </p>
+                   <img src="Assets/act-1/items.svg" class="col-12" style="max-width: 650px;min-height: 110px;">
+               </div>
+               <div class="col-12 text-center" style="display: none;" id="bonus1">
+                  <p class="endText3 mb-0 pb-3 pb-sm-0">
+                      Bonus item unlocked!
+                  </p>
+                  <img src="Assets/act-3/bouns.svg" class="col-12" style="max-width: 150px;max-height: 80px;">
+              </div>
+           <div class="">
+              <a href="S2-Pre-activity-instruction.html">
+               <img class="col-12" style="max-width: 70px;" src="Assets/act-1/next.svg" id="button">
+             </a>
+           </div>
+        </div>
+        <div id="next">
+           <p id="option-1"></p>
+        </div>
+        <div id="retry">
+           <p id="option-2"></p>
+        </div>
+        <div id="retry-next">
+           <p id="answer"></p>
+        </div>
+        <!-- <img src="Assets/act-1/end-br.png" class="position-absolute" style="bottom: 0%;right: 0;"> -->
+        <!-- <img src="Assets/act-1/end-kiss.png" class="position-absolute" style=""> -->
+        <img src="Assets/act-1/eyelid.png" class="d-none">
+     </div>
+        <!-- <img src="Assets/general/logo.svg" style="max-width: 150px;max-height: 40px;top: 3%;right: 3%;" class="position-absolute"> -->
+        <script>
+         // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+         let vh = window.innerHeight * 0.01;
+         // Then we set the value in the --vh custom property to the root of the document
+         document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+         // We listen to the resize event
+         window.addEventListener('resize', () => {
+         // We execute the same script as before
+         let vh = window.innerHeight * 0.01;
+         document.documentElement.style.setProperty('--vh', `${vh}px`);
+         });   
+      </script>
+        <script type="text/javascript" src="dist/localStorage.js"></script>
+        <script type="text/javascript" src="js/activity-1.js"></script>
+  </body>
+</html>

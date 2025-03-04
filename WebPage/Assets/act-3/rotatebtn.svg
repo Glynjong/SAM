@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_901" data-name="Group 901" transform="translate(0.486 0.364)">
+    <circle id="Ellipse_266" data-name="Ellipse 266" cx="12" cy="12" r="12" transform="translate(-0.486 -0.364)" fill="#f8ec4f"/>
+    <g id="rotate" transform="translate(6.33 6.234)">
+      <path id="Path_529" data-name="Path 529" d="M30.893,15.121a6.123,6.123,0,0,0-.381-2.116l-.891.324a5.328,5.328,0,0,1,.319,1.792Z" transform="translate(-18.98 -8.905)" fill="#463383" stroke="#463383" stroke-linecap="square" stroke-width="0.6"/>
+      <path id="Path_545" data-name="Path 545" d="M1.272,2.116A6.123,6.123,0,0,0,.891,0L0,.324A5.328,5.328,0,0,1,.319,2.116Z" transform="translate(10.833 7.881) rotate(40)" fill="#463383" stroke="#463383" stroke-linecap="square" stroke-width="0.6"/>
+      <path id="Path_546" data-name="Path 546" d="M1.272,2.116A6.123,6.123,0,0,0,.891,0L0,.324A5.328,5.328,0,0,1,.319,2.116Z" transform="matrix(0.07, 0.998, -0.998, 0.07, 8.535, 10.806)" fill="#463383" stroke="#463383" stroke-linecap="square" stroke-width="0.6"/>
+      <path id="Path_547" data-name="Path 547" d="M1.272,2.116A6.123,6.123,0,0,0,.891,0L0,.324A5.328,5.328,0,0,1,.319,2.116Z" transform="translate(4.579 11.277) rotate(132)" fill="#463383" stroke="#463383" stroke-linecap="square" stroke-width="0.6"/>
+      <path id="Path_530" data-name="Path 530" d="M14.984,5.563a6.195,6.195,0,0,0-9.531,0V3.823H4.5V7.636H8.312V6.682H5.839a5.242,5.242,0,0,1,8.392-.51Z" transform="translate(-4.5 -3.326)" fill="#463383" stroke="#463383" stroke-linecap="square" stroke-width="0.6"/>
+    </g>
+  </g>
+</svg>

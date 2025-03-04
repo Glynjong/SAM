@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="dist/jquery.js"></script>
+    <script src="dist/html2canvas.js"></script>
+    <style>
+    </style>
+  </head>
+  <body class="" >
+    <section id="question-1" class="activity">
+        <div class="row justify-content-center w-50 mx-auto h-50" style="padding-top: 10%;">
+            <p class="col-12 text-center" style="font-size: 17px;color: #3D9CD7;">Tell us</p>
+            <p class="col-12 text-center" style="font-size: 25px;color: #463383;font-weight: 800;">Who is this person? What makes this person important to you? What did you think or feel while making an artwork about this important person in your life?</p>
+            <textarea style="border:dashed 2px #3D9CD7;min-height: 150px;" class="w-100 h-100" 
+            id="qn-1"  maxlength="300"></textarea>
+            <p class="col-12 text-right px-0" style="color: #463383;font-size: 15px;">Max. 300 characters</p>
+            <a class="pb-5" onclick="qn2()"><img src="Assets/general/submitbtn.png"></a>
+        </div>
+        <img src="Assets/act-3/qn-bg-1.svg" class="position-absolute" style="bottom: 5%;">
+        <img src="Assets/act-3/qn-bg-2.svg" class="position-absolute" style="right: 5%;bottom: 20%;">
+    </section>
+    <section id="question-3" style="width: 100vw;height: 100vh;display: none;">
+        <div class="row justify-content-center w-50 mx-auto h-50" style="padding-top: 10%;">
+            <p class="col-12 text-center" style="font-size: 17px;color: #3D9CD7;">Share with us</p>
+            <p class="col-12 text-center" style="font-size: 25px;color: #463383;font-weight: 800;">What more would you like to learn about contemporary art and why?</p>
+            <textarea style="border:dashed 2px #3D9CD7;min-height: 150px;" class="w-100 h-100" 
+            id="qn-3"  maxlength="300"></textarea> 
+            <p class="col-12 text-right px-0" style="color: #463383;font-size: 15px;">Max. 300 characters</p>
+            <a class="pt-5" onclick="dl_page()"><img src="Assets/general/submitbtn.png"></a>
+        </div>
+        <img src="Assets/act-3/qn-bg-1.svg" class="position-absolute" style="bottom: 5%;">
+        <img src="Assets/act-3/qn-bg-2.svg" class="position-absolute" style="right: 5%;bottom: 20%;">
+    </section>
+    <section id="dl-page" style="width: 100vw;height: 100vh;display: none;overflow: auto;">
+        <div class="row justify-content-center w-50 mx-auto h-50" style="padding-top: 5%;">
+            <p class="col-12 text-center mb-0" style="font-size: 38px;color: #E0873D;font-weight: 800;">Well done!</p>
+            <p class="col-12 text-center" style="font-size: 21px;color: #E0873D;font-weight: 800;">You have completed your first contemporary artwork!</p>
+            <p class="col-12 text-center pt-2" style="font-size: 20px;color: #463383;">Download and share it with your family and friends to show them what contemporary art is all about! </p>
+            <img src="Assets/general/loading.gif" alt="Your Artwork" class="artwork col-12 pt-3" id="artworkImg" style="max-width: 90%;max-height: 90vh;border: 1px solid black;"/>
+            <a class="py-5 col-12 text-center" href="" title="Download Artwork" id="artworkLink" download>
+                <img src="Assets/act-3/dlbtn.png">
+            </a>
+        </div>
+        <img src="Assets/act-3/qn-bg-1.svg" class="position-absolute" style="bottom: 5%;">
+        <img src="Assets/act-3/qn-bg-2.svg" class="position-absolute" style="right: 5%;bottom: 20%;">
+    </section>
+    <!-- <a onclick="dl_Img()" class="mx-auto position-absolute" style="right: 0;" title="Download Artwork" id="artworkLink" download>test</a> -->
+    <!-- <a id="download" class="mx-auto position-absolute" style="right: 0;" href="" onclick="download_img(this);" download>Download to myImage.jpg</a> -->
+    <!-- <a href="" title="Download Artwork" id="artworkLink" download style="position: absolute;right: 0;">
+        <button type="button" class = "pop-btn"><img src="images/btn-yes.png" alt="proceed" onclick="download();" /></button>
+        <img src="images/download/btn-dl.png" alt="Download button" />
+    </a> -->
+    <img src="Assets/general/logo.svg" style="max-width: 150px;max-height: 40px;top: 3%;right: 3%;display: none;" class="position-absolute img-fluid" id="logo">
+    <script>
+        // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+        let vh = window.innerHeight * 0.01;
+        // Then we set the value in the --vh custom property to the root of the document
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+        // We listen to the resize event
+        window.addEventListener('resize', () => {
+        // We execute the same script as before
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });   
+     </script>
+    <script src="./dependencies/fabric/dist/fabric.js"></script>
+    <script src="./dist/fabricHistory.js"></script>
+    <script src="./dist/customiseControls.js"></script>
+    <script src="./dist/localStorage.js"></script>
+    <script src="js/activity-3.js"></script>
+    <!-- <script>
+    window.onload = function() {
+        $(document).ready(function () {
+            showSteps()
+        });
+        // initialSteps()
+        // $("#freeplay").show();
+        console.log("loading showsteps")
+    };
+    </script> -->
+    <!-- <script>
+        function download() {
+            var mode = $("#gameplay").data("mode");
+            var c = document.getElementById("canvas-dl");
+            var ctx = c.getContext('2d');
+            c.width = 2407;
+            c.height = 1355;
+
+            var bgimg = new Image();
+            bgimg.src = "./Assets/pre-act-2-instruc/bg.svg";
+            bgimg.onload = function(){
+                ctx.drawImage(bgimg, 0, 0);
+                // var window.canvas = $("#gameplay #canvas");
+                console.log(window.canvas)
+                console.log(ctx, canvas, window.canvas);
+                var dataURL = window.canvas[0].toDataURL({
+                    format: 'png',
+                    multiplier: 1
+                });
+                var artwork = new Image();
+                artwork.src = dataURL;
+                artwork.onload = function(){
+                    ctx.drawImage(artwork, 484, 58, 1440, 1080);
+                    var dataURL = c.toDataURL({
+                        format: 'png',
+                        multiplier: 1
+                    });
+                    //console.log(dataURL);
+                    $("#artworkImg").attr("src", dataURL);
+                    $("#artworkLink").attr("href", dataURL);
+                    $("#artworkLink").on('click', function (e) {
+                        setTimeout(function() {
+                            window.open('https://forms.nationalgallery.sg/a/TakeSurvey?tt=uF0y%2BWtOpz4%3D', '_blank');
+                        }, 2000);
+                    });
+                }
+            }
+            $("#gameplay").hide();
+            $("#download").show();
+        }
+    </script> -->
+    <script>
+    $(document).on('keyup', function (e) {
+        if (e.keyCode === 13 ) {
+            console.log($(window).width())
+            console.log($(window).height())
+        }
+    })
+    </script>
+  </body>
+  <div id = "promptOverlay">
+    <div></div>
+  </div>
+</html>

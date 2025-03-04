@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="dist/jquery.js"></script>
+  </head>
+  <body >
+    <div class="text-right col-12 w-100" id="logo" style="padding-right: 35px;padding-top: 35px;">
+        <img src="./Assets/general/logo.svg" class="">
+    </div>
+        <div class="actvity">
+            <div class="pb-2 row w-100 mx-auto px-5" style="max-width: 980px;padding-top: 5vh;">
+                <p class="pre-act title mb-0 col-12 px-0" style="color: #3D9CD7;font-size: 43px;">Artwork</p>
+                <p class="pre-act title mb-0 col-12 px-0 pt-1 bold" style="color: #3D9CD7;font-size: 45px;font-weight: 800;">Making</p>
+                <!-- <p class="pre-act title mb-0 bold col-12 px-0" style="color: #3D9CD7;"></p> -->
+                <p class=" text pb-0 pt-3" style="color: #463383;font-size: 20px;font-weight: 400;">Great job, you have collected your design tools! Now it’s time to create your own contemporary artwork!</p>
+            </div>
+            <!-- <img src="Assets/pre-act-1-instuc/bg-instruc.png" style="right: 0%;left: 5vw;top: 0%;bottom: 0%;z-index: -1;pointer-events: none;" class="position-absolute m-auto"> -->
+            <div class="bg-instruction px-5 mx-auto" style="max-width: 1105px;">
+                <img src="Assets/pre-act-1-instuc/bg-instruc-tr.png" class="position-absolute" style="top: -5%;right: 0;">
+                <img src="Assets/pre-act-1-instuc/bg-instruc-bl.png" class="position-absolute" style="bottom: -5%;left: 0;">
+                <div class="row m-auto px-0 px-sm-5 py-0 py-sm-4" style="max-width: 960px;right: 0%;left: 3vw;top: 10vh;bottom: 0%;" id="s3-pre-act">
+                    <p class="m-0 col-12 pt-3 text-center bold" style="color: #463383;font-size: 26px;height: 0%;">
+                        What you need to do:
+                    </p>
+                    <!-- <div class="">
+                    </div> -->
+                    <div class="col-12 col-lg-4 text-center py-3 px-4">
+                        <img class="" src="Assets/pre-act-2-instruc/tri1.png" style="max-width: 90px;max-height: 90px;">
+                        <p class="m-0 pre-act text">
+                            Read the passage.
+                        </p>
+                    </div>
+                    <div class="col-12 col-lg-4 text-center py-3 px-4">
+                        <img class="" src="Assets/pre-act-2-instruc/tri2.png" style="max-width: 90px;min-height: 88px;">
+                        <p class="m-0 pre-act text">
+                            Create your own artwork based on the subject in the passage.
+                        </p>
+                    </div>
+                    <div class="col-12 col-lg-4 text-center py-3 px-4">
+                        <img class="" src="Assets/pre-act-2-instruc/tri3.png" style="max-width: 90px;">
+                        <p class="m-0 pre-act text">
+                            Now it’s time to create your own artwork!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <p class="container position-relative" style="width: 90px;height: 90px;">
+                <div class="text-center mx-auto pb-5">
+                    <a href="S3-Pre-activity.html">
+                        <img src="Assets/pre-act-1-instuc/go.png" style="max-width: 90px;">
+                    </a>
+                </div>
+            </p>
+            <!-- <img src="Assets/general/logo.svg" style="max-width: 150px;max-height: 40px;top: 3%;right: 3%;" class="position-absolute"> -->
+            <img src="Assets/pre-act-1-instuc/bg-instruc-circle.png" style="max-width: 150px;max-height: 40px;top: 0%;left: 0%;" class="position-absolute">
+        </div>
+        <script>
+            // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+            let vh = window.innerHeight * 0.01;
+            // Then we set the value in the --vh custom property to the root of the document
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+            // We listen to the resize event
+            window.addEventListener('resize', () => {
+            // We execute the same script as before
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+            });   
+         </script>
+  </body>
+</html>

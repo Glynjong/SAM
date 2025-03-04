@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
+  <g id="Group_1270" data-name="Group 1270" transform="translate(-1172.361 -491)">
+    <g id="Ellipse_290" data-name="Ellipse 290" transform="translate(1172.361 491)" fill="#f8ec4f" stroke="#e234a6" stroke-width="3">
+      <circle cx="26" cy="26" r="26" stroke="none"/>
+      <circle cx="26" cy="26" r="24.5" fill="none"/>
+    </g>
+    <path id="FontAwsome_check_" data-name="FontAwsome (check)" d="M7.472,81.182l-7.15-7.15a1.1,1.1,0,0,1,0-1.556L1.878,70.92a1.1,1.1,0,0,1,1.556,0L8.25,75.737,18.567,65.42a1.1,1.1,0,0,1,1.556,0l1.556,1.556a1.1,1.1,0,0,1,0,1.556L9.028,81.182a1.1,1.1,0,0,1-1.556,0Z" transform="translate(1187.361 443.699)"/>
+  </g>
+</svg>

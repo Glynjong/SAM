@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
+  <g id="Group_1266" data-name="Group 1266" transform="translate(-1172.361 -225)">
+    <g id="Ellipse_289" data-name="Ellipse 289" transform="translate(1172.361 225)" fill="#f8ec4f" stroke="#e234a6" stroke-width="3">
+      <circle cx="26" cy="26" r="26" stroke="none"/>
+      <circle cx="26" cy="26" r="24.5" fill="none"/>
+    </g>
+    <path id="FontAwsome_info_" data-name="FontAwsome (info)" d="M.859,18.229h.859V12.021H.859A.859.859,0,0,1,0,11.162V9.109A.859.859,0,0,1,.859,8.25H5.672a.859.859,0,0,1,.859.859v9.119h.859a.859.859,0,0,1,.859.859v2.053A.859.859,0,0,1,7.391,22H.859A.859.859,0,0,1,0,21.141V19.088A.859.859,0,0,1,.859,18.229ZM4.125,0A3.094,3.094,0,1,0,7.219,3.094,3.094,3.094,0,0,0,4.125,0Z" transform="translate(1194.236 240)"/>
+  </g>
+</svg>

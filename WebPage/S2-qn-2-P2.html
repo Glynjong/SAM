@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="dist/jquery.js"></script>
+    <script src="dist/Sortable.min.js"></script>
+  </head>
+  <body >
+   <div class="text-right col-12 w-100" id="logo" style="padding-right: 35px;padding-top: 35px;">
+      <img src="./Assets/general/logo.svg" class="">
+  </div>
+     <div class="container activity">
+        <p class="col-12 text-center question-num w-100 pt-5" id="q2">
+           2/3
+        </p>
+        <div class="col-12 font-italic instructions text-center d-block d-lg-none">Click and drag to rearrange the answers. Complete the paragraph to earn a star.</div>
+           <div class="row w-100 m-0">
+               <div class="col-12 col-lg-8 pt-5 quiz-2">
+                  <p class="m-0 pl-3"><mark style="background-color: yellow;width: 50px;">(1)</mark> is a reference to the provision shops in local housing estates. <br><br>“Everything you ever wanted is right <mark style="background-color: yellow;width: 50px;">(2)</mark> ” inscribed across the entrance to a provision shop reminds viewers that sometimes, one need not look too <mark style="background-color: yellow;width: 50px;">(3)</mark> for what they might need. <br><br>At the same time, it also challenges the viewer to query if all they ever wanted is truly located right where they are.</p>
+               </div>
+               <div class="col-12 col-lg-4 pt-3 row justify-content-center px-0 px-sm-5 m-0" id="link-1">
+                  <div class="col-12 font-italic instructions d-none d-lg-block">Click and drag to rearrange the answers. Complete the paragraph to earn a star.</div>
+                   <div class="col-2 text-center h-100" style="color: #463383;max-height: 250px;">
+                       <div class="my-5 text-center">1</div>
+                       <div class="my-5 text-center">2</div>
+                       <div class="my-5 text-center">3</div>
+                   </div>
+                   <div class="col pt-3" id="answers">
+                       <div class="text-center py-2 my-4 quiz-2-borders" id="2">
+                           here
+                        </div>
+                       <div class="text-center py-2 my-4 quiz-2-borders" id="3">
+                           far
+                        </div>
+                        <div class="text-center py-2 my-4 font-italic quiz-2-borders" id="1">
+                           Mamashop
+                        </div>
+                     </div>
+                   </div>
+                </div>
+                <div class="mx-auto py-3" style="max-width: 400px;height: 150px;" id=submit>
+                 <div class="text-center submit" style="max-width: 146px;" >
+                    <a id="" onclick="submit()">
+                     <img src="Assets/general/submitbtn.png">
+                   </a>
+                 </div>
+              </div>
+              <div class="mx-auto py-3" style="max-width: 400px;height: 150px;" id="next">
+                 <div class="row justify-content-center next" >
+                    <p class="col-12 text-center bold m-0">Well done!</p>
+                    <p class="col-12 text-center bold" >You got a star!</p>
+                    <div class="text-center">
+                       <a href="S2-qn-3-P1.html" onclick="getStar()">
+                        <img class="col-12" src="Assets/act-1/next.svg" id="button">
+                      </a>
+                    </div>
+                 </div>
+              </div>
+              <div class="mx-auto" style="max-width: 400px;height: 150px;" id="retry">
+                 <div class=" row justify-content-center retry">
+                    <p class="col-12 text-center bold">Oops!</p>
+                    <p class="col-12 text-center bold">Try again</p>
+                    <div class="text-center">
+                       <a onclick="retry()">
+                        <img class="col-12" src="Assets/act-1/retry.png" id="button">
+                      </a>
+                    </div>
+                 </div>
+              </div>
+              <div class="mx-auto py-3" style="max-width: 400px;height: 150px;" id="retry-next">
+                 <div class=" row justify-content-center retry-next">
+                    <p class="col-12 text-center bold">Good Job!</p>
+                    <div class="text-center">
+                       <a href="S2-qn-3-P1.html" onclick="greyStar()">
+                        <img class="col-12" src="Assets/act-1/next.svg" id="button">
+                      </a>
+                    </div>
+                 </div>
+              </div>
+              <div class="position-relative" style="height: 22%;">
+                 <!-- <div class="position-absolute d-block d-lg-none" id="s2-triangle-m">
+                    <img src="Assets/act-2/act-2bg.svg">
+                 </div> -->
+                 <div class="position-absolute row scoreboard mx-auto">
+                    <p class="float-left text-center m-0 py-2 pl-0 pl-sm-4 col-6" style="min-width: 170px;">
+                       Pre-activity 2
+                    </p>
+                    <div class="pt-2 pl-0 pl-sm-2 col px-0" style="min-width: 170px;">
+                       <img class="pr-3" id="star4" src="Assets/act-1/whitestar.svg">
+                       <img class="pr-3" id="star5" src="Assets/act-1/whitestar.svg">
+                       <img class="pr-3" id="star6" src="Assets/act-1/whitestar.svg">
+                    </div>
+                 </div>
+              </div>
+              <!-- <div class="position-absolute d-none d-lg-block" id="s2-triangle">
+                 <img src="Assets/act-2/act-2bg.svg">
+              </div> -->
+           </div>
+         <!-- <img src="Assets/general/logo.svg" class="logo img-fluid"> -->
+         <script>
+            // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+            let vh = window.innerHeight * 0.01;
+            // Then we set the value in the --vh custom property to the root of the document
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+            // We listen to the resize event
+            window.addEventListener('resize', () => {
+            // We execute the same script as before
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+            });   
+         </script>
+        <script type="text/javascript" src="dist/localStorage.js"></script>
+        <script type="text/javascript" src="js/activity-2.js"></script>
+  </body>
+</html>

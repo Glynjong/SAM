@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
+  <g id="Group_1268" data-name="Group 1268" transform="translate(-1172.361 -358)">
+    <g id="Ellipse_292" data-name="Ellipse 292" transform="translate(1172.361 358)" fill="#f8ec4f" stroke="#e234a6" stroke-width="3">
+      <circle cx="26" cy="26" r="26" stroke="none"/>
+      <circle cx="26" cy="26" r="24.5" fill="none"/>
+    </g>
+    <path id="FontAwsome_redo-alt_" data-name="FontAwsome (redo-alt)" d="M19.02,8A10.962,10.962,0,0,1,26.6,11.046l1.584-1.584A1.065,1.065,0,0,1,30,10.215v5.946a1.065,1.065,0,0,1-1.065,1.065H22.989a1.065,1.065,0,0,1-.753-1.817l1.852-1.852a7.451,7.451,0,1,0-.181,11.052.531.531,0,0,1,.726.025l1.759,1.759a.533.533,0,0,1-.021.773A11,11,0,1,1,19.02,8Z" transform="translate(1179.361 365)"/>
+  </g>
+</svg>

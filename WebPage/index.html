@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" /> -->
+    <script src="dist/jquery.js"></script>
+    <script src="dist/jquery.scrollify.js"></script>
+    <style>
+      @media (min-width: 992px) {
+        #Ycircle {
+          display: block;
+        }  
+      }
+      @media (max-width:991px) {
+        #Ycircle {
+          display: none;
+        } 
+      }
+    </style>
+</head>
+<body style="width: 100%;height: 100%;">
+    <img class="Ycircle-m d-block d-lg-none" id="Ycircle-m" src="Assets/pre-act-1-instuc/yellowcircle.svg" style="position: fixed;">
+    <img class="Pcircle-m d-block d-lg-none" id="Pcircle-m" src="Assets/pre-act-1-instuc/purplecircle.svg" style="position: fixed;">
+    <!-- <img class="Ycircle d-none d-md-block d-lg-none" id="Ycircle-t" src="Assets/pre-act-1-instuc/yellowcircle.svg" style="position: fixed;">
+    <img class="Pcircle d-none d-md-block d-lg-none" id="Pcircle-t" src="Assets/pre-act-1-instuc/purplecircle.svg" style="position: fixed;"> -->
+    <img class="Ycircle" id="Ycircle" src="Assets/pre-act-1-instuc/yellowcircle.svg" style="position: fixed;">
+    <img class="Pcircle d-none d-lg-block" id="Pcircle" src="Assets/pre-act-1-instuc/purplecircle.svg" style="position: fixed;">
+    <div class="text-right col-12 w-100" id="logo" style="padding-right: 35px;padding-top: 35px;">
+      <!-- <div class="position-absolute d-none d-sm-block" style="left: 50%;transform: translate(-50%);font-size: 21px;color: #3D9CD7;">Get Quizzical with SAM!</div> -->
+        <img src="./Assets/general/logo.svg" class="">
+    </div>
+<section class="row m-0 w-100" style="height: 100vh;position: relative;">
+    <div class="LandingTitle mx-auto">
+      <!-- <p class="m-0 pb-3 medium" style="font-size: 21px;color: #3D9CD7;">
+        Get Quizzical with SAM!
+      </p> -->
+      <p class="bold m-0 pt-2 title-bold">Get Quizzical</p>
+        <p class="m-0 title">
+          with SAM!
+        </p>
+        <!-- <p class="text-right bold m-0 title-bold" id="scrollMore">Art</p> -->
+        <p class="position-absolute pt-5 w-100" style="left: 50%;transform: translateX(-50%);color: #3D9CD7;" id="disappear">Scroll down for more</p>
+    </div>
+</section>
+<section class="row m-0 w-100 position-relative overflow-hidden" style="height: 100vh;" id="scene2">
+    <div class="col-12 col-lg-5 welcome">
+            <img src="Assets/pre-act-1-instuc/Path 578.png" class="" style="padding-bottom: 10%;">
+            <p class="mb-3 title-bold bold">
+                Welcome!
+            </p>
+            <p class="LandingText" style="line-height: 125%;">Before we begin, tell us more about yourself!</p>
+    </div>    
+    <div class="LandingForm col-12 col-lg-4 mx-auto px-5 px-lg-0 overflow-hidden" id="inputFields">
+            <p class="text-center mb-0" id="scene2-m">Name</p><br>
+            <input class="w-100" type="text" id="nameInput" maxlength="30"> 
+            <p class="text-center pt-4 mb-0" id="scene3-m">Class</p>
+            <input class="w-100" type="text" id="classInput" maxlength="30" style="margin-top: 4%;"> 
+        </div>
+        <img class="position-absolute" src="Assets/pre-act-1-instuc/Yeye.png" style="max-width: 120px;height: 50px;" id="Yeye">
+</section>
+<section class="row m-0 w-100 position-relative" style="height: 100%;">
+    <div class="col-12 col-lg-6" style="padding-top: 10%;padding-right: 10%;padding-left: 10%;" id="textSlide">
+        <p class="text-light ImgText pb-4">Art can be found anywhere and everywhere.</p>
+        <p class="text-light bold  mb-0 title-bold pt-4 pt-sm-0" style="min-height: 110px;" >Imagine
+          <span><img src="Assets/landing/circle.svg" class="position-relative" id="I-circle"></span>
+        </p>
+        <div class="col-8 pl-0">
+            <p class="text-light ImgText">A Singapore with no art… Do you think it will be as lively and colourful as it is now?</p>
+            <p class="text-light ImgText">It is art that reflects life and diversity in our multicultural and multiracial country.</p>
+        </div>
+    </div>
+    <div class="col-12 col-lg-6 px-3 textSlide slide overflow-hidden" style="padding-top: 10%;padding-bottom: 5%;margin-bottom: 25px;" id="indexFadeIn">
+        <div class="position-relative imgHolder" style="min-height: 480px;" id="opacity">
+            <!-- <img src="Assets/landing/biscuit.svg" class="biscuit-bg position-absolute" style="bottom: 0%;"> -->
+            <img src="Assets/landing/eclipse.svg" class="biscuit-bg position-absolute" style="top: 0;right: 0;">
+        </div>
+        <p class="w-75 ml-auto pt-3 pre-act text" id="opacity">
+          Journey with us at the Singapore Art Museum, to learn more about Art in Singapore and Southeast Asia, especially on Contemporary Art!<br><br>
+          Collect bonus items to create your artwork at the end!
+        </p>
+        <div class="col px-3 text-right" id="button" id="opacity">
+            <a href="#" style="position: relative;top: 85%;transform: translateY(-100%);" onclick="saveUser()" id="Next">
+                <img src="Assets/landing/indexNxtBtn.svg" class="">
+            </a>
+        </div>
+        <!-- S1-Pre-activity-instruction.html -->
+    </div>
+    <div class="px-3 w-100 position-absolute" style="max-height: 25px;bottom: 0;">
+        <img class="float-left" src="Assets/landing/Tm.svg">
+        <a href="https://www.youtube.com/channel/UCak8zXyFxu_j11RDB8FlOIA" rel="noreferrer noopener" target="_blank"><img class="float-right pb-2" src="Assets/landing/yt.svg"></a>
+        <a href="https://www.instagram.com/singaporeartmuseum/" rel="noreferrer noopener" target="_blank"><img class="float-right pr-4 pb-2" src="Assets/landing/ig.svg"></a>
+        <a href="https://www.facebook.com/singaporeartmuseum" rel="noreferrer noopener" target="_blank"><img class="float-right pr-4 pb-2" src="Assets/landing/fb.svg"></a>
+    </div>
+</section>
+<!-- <div style="width: 10000px;">asdf</div> -->
+<script src="dist/localStorage.js"></script>
+<script src="dist/jquery.scrollify.js"></script>
+<script src="dist/scrollmagic.min.js"></script>
+<script src="dist/addIndicators.min.js"></script>
+<script src="dist/animation.gsap.min.js"></script>
+<script src="dist/gsap.min.js"></script>
+<script>
+    window.onload = function() {
+        localStorage.clear()
+    }
+</script>
+<script>
+
+$(document).on('keyup', function (e) {
+  if (e.keyCode === 13 ) {
+    // location.reload();
+    
+    // var check = detectDevice();
+    // console.log(check.device)
+    // if (check.device == "mobile" && check.orientation == "landscape") {
+    //   if (screen.width > 1000) {
+    //     document.getElementById("Ycircle").style.display = "none"
+    //     console.log("d-none")
+    //   }
+    // }
+    // console.log(screen.width)
+    // var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    // var element = document.getElementById('text');
+    // if (isMobile) {
+    //     console.log("mobile")
+    //     if (screen.width > 1000) {
+    //       console.log("mobile & > 1000px")
+    //     }
+    // } else {
+    //  console.log("desktop")
+    // }
+  }
+})
+</script>
+<!-- <script>
+  var orientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation;
+
+if (orientation === "landscape-primary") {
+  console.log("That looks good.");
+} else if (orientation === "landscape-secondary") {
+  console.log("Mmmh... the screen is upside down!");
+} else if (orientation === "portrait-secondary" || orientation === "portrait-primary") {
+  console.log("Mmmh... you should rotate your device to landscape");
+} else if (orientation === undefined) {
+  console.log("The orientation API isn't supported in this browser :(");
+}
+</script> -->
+<script>
+  var $inputN = $('#nameInput')
+  $inputN.keyup(function(e) {
+      var max = 30;
+      if ($inputN.val().length > max) {
+          $inputN.val($inputN.val().substr(0, max));
+      }
+  });
+  var $inputC = $('#classInput')
+  $inputC.keyup(function(e) {
+      var max = 30;
+      if ($inputC.val().length > max) {
+          $inputC.val($inputC.val().substr(0, max));
+      }
+  });
+</script>
+<script>
+    var controller = new ScrollMagic.Controller();
+    // making next button appear
+    var fadeInTimeline = new TimelineMax();
+    var fadeInFrom = TweenMax.from("#opacity", 1, {
+        autoAlpha: 0
+    });
+    var fadeInTo = TweenMax.to("#opacity", 1, {
+        autoAlpha: 1
+    });
+    fadeInTimeline
+        .add(fadeInFrom)
+        .add(fadeInTo);
+ 
+    new ScrollMagic.Scene({
+        triggerElement: "#textSlide",
+        offset: 275,
+    })
+    .setTween(fadeInTimeline)
+    .duration(600)
+    //    .reverse(false)
+    // .addIndicators() // add indicators (requires plugin)
+    .addTo(controller);
+
+    // disappear
+    var controller = new ScrollMagic.Controller();
+    // making next button appear
+    var fadeInTimeline = new TimelineMax();
+    var fadeInFrom = TweenMax.from("#disappear", 1, {
+        autoAlpha: 1
+    });
+    var fadeInTo = TweenMax.to("#disappear", 1, {
+        autoAlpha: 0
+    });
+    fadeInTimeline
+        .add(fadeInFrom)
+        .add(fadeInTo);
+ 
+    new ScrollMagic.Scene({
+        triggerElement: "#scrollMore",
+        offset: 0,
+    })
+    .setTween(fadeInTimeline)
+    .duration(200)
+    //    .reverse(false)
+    // .addIndicators() // add indicators (requires plugin)
+    .addTo(controller);
+
+       //mobile
+   
+   var tween = TweenMax.to('#Ycircle-m', 2, {
+    y:-($(window).width()*0.28)
+    });
+  
+  // Create the Scene and trigger when visible
+  var scene = new ScrollMagic.Scene({
+    triggerElement: '#scene',
+    duration: 1200, 
+    offset: 0,
+  })
+  .setTween(tween)
+  .addTo(controller);
+  
+  // Add debug indicators fixed on right side
+  //  scene.addIndicators();
+   var tween = TweenMax.to('#Ycircle-m', 4, {
+    x:-1050,
+    });
+  
+  // Create the Scene and trigger when visible
+  var scene = new ScrollMagic.Scene({
+    triggerElement: '#scene2-m',
+    duration: 900, 
+    offset: 0,
+  })
+  .setTween(tween)
+  .addTo(controller);
+  // Add debug indicators fixed on right side
+  //  scene.addIndicators();
+
+   var tweenP = TweenMax.to('#Pcircle-m', 4, {
+    x:-($(window).width()*0.38),
+    y:-($(window).width()*1.4)
+    });
+  
+  // Create the Scene and trigger when visible
+  var scene = new ScrollMagic.Scene({
+    triggerElement: '#scene3-m',
+    duration: 800, 
+    offset: 0,
+  })
+  .setTween(tweenP)
+  .addTo(controller);
+  
+  // Add debug indicators fixed on right side
+  //  scene.addIndicators();
+    
+  document.addEventListener("DOMContentLoaded", initDetect)
+
+  function initDetect(){
+    window.addEventListener("resize", detectDevice)
+    detectDevice()
+  }
+
+  detectDevice = () => {
+    let detectObj = {
+      device: !!navigator.maxTouchPoints ? 'mobile' : 'computer',
+      orientation: !navigator.maxTouchPoints ? 'desktop' : !window.screen.orientation.angle ? 'portrait' : 'landscape'
+    }
+    // var check = detectDevice();
+    // console.log(check.device)
+    if (detectObj.device == "mobile" && detectObj.orientation == "landscape") {
+      if (screen.width > 768 && screen.width < 1300) {
+        console.log(screen.width)
+        console.log(screen.height)
+        console.log("landscape")
+        window.landscape = "true";
+        // location.reload();
+      }
+    }
+    else if (detectObj.device == "mobile" && detectObj.orientation == "portrait") {
+      if (screen.height > 576 && screen.height < 1350) {
+        console.log(screen.height)
+        console.log(screen.width)
+        console.log("portrait")
+        window.portrait = "true";
+      }
+    }
+    if (window.portrait =="true" && window.landscape == "true") {
+      location.reload();
+    };
+    // console.log(detectObj)
+    return detectObj
+  }
+  // window.addEventListener("scroll", (event) => {
+  //   let scroll = window.scrollY;
+  //   console.log(scroll)
+  // });
+  var check = detectDevice();
+    if (check.device == "mobile" && check.orientation == "landscape") {
+      if (screen.width > 768 && screen.width < 1300) {
+        // console.log("tablet cal")
+        var YC1X = $(window).width()*0.9
+        var YC1Y = $(window).height()*0.83
+        var YC2X = 1600
+        var PC2X = $(window).height()*1
+        var PC2Y = $(window).height()*0.65
+        var PC2Offset = 400
+        // location.reload();
+      }
+    } else {
+      // console.log("desktop cal")
+        var YC1X = 1400
+        var YC1Y = $(window).height()*1
+        var YC2X = 2750
+        var PC2X = $(window).height()*1.48
+        var PC2Y = $(window).height()*1.65
+        var PC2Offset = 600
+    }
+  var tween = TweenMax.to('#Ycircle', 2, {
+    x:-(YC1X),
+    y:(YC1Y)
+    });
+    // x:-(1400),
+    // y:($(window).height()*1)
+  
+  // Create the Scene and trigger when visible
+  var scene = new ScrollMagic.Scene({
+    triggerElement: '#scene',
+    duration: 1200, 
+    offset: 0,
+  })
+  .setTween(tween)
+  .addTo(controller);
+  
+  // Add debug indicators fixed on right side
+//    scene.addIndicators();
+
+
+   var tweenP = TweenMax.to('#Pcircle', 2, {
+    x:($(window).width()*0.25),
+    y:-($(window).width()*0.25)
+    });
+    var scene = new ScrollMagic.Scene({
+    triggerElement: '#scene',
+    duration: 800, 
+    offset: 0,
+  })
+  .setTween(tweenP)
+  .addTo(controller);
+//   scene.addIndicators();
+
+   var tween = TweenMax.to('#Ycircle', 4, {
+    x:-YC2X,
+    });
+    // x:-2750,
+  // Create the Scene and trigger when visible
+  var scene = new ScrollMagic.Scene({
+    triggerElement: '#scene2',
+    duration: 600, 
+    offset: 600,
+  })
+  .setTween(tween)
+  .addTo(controller);
+  // Add debug indicators fixed on right side
+//    scene.addIndicators();
+//    $( document ).ready(function() {
+//     console.log($(window).width())
+//     if (($(window).width() > 1800)) {
+//         // window.value = ($(window).height()*1.25)
+//         window.value = 1.25
+//         console.log("ture",window.value)
+//       } else {
+//         // window.value = ($(window).height()*1.45)
+//         window.value = 2.25
+//         console.log("false",window.value)
+//       }
+// });
+// var testValue = $(window).height()*0.65
+   var tweenP = TweenMax.to('#Pcircle', 4, {
+    x:-(PC2X),
+    y:-(PC2Y)
+    });
+    // x:-($(window).height()*1.48),
+    // y:-($(window).height()*1.65)
+  
+  // Create the Scene and trigger when visible
+  var scene = new ScrollMagic.Scene({
+    triggerElement: '#scene2',
+    duration: 600, 
+    offset: PC2Offset,
+  })
+  // 600
+  .setTween(tweenP)
+  .addTo(controller);
+  
+  // Add debug indicators fixed on right side
+  //  scene.addIndicators();
+
+
+
+</script>
+
+</body>
+</html>

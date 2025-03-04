@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="dist/jquery.js"></script>
+  </head>
+  <body >
+    <div class="text-right col-12 w-100" id="logo" style="padding-right: 35px;padding-top: 35px;">
+      <img src="./Assets/general/logo.svg" class="">
+  </div>
+        <div class="pre-act-2 bg h-100 position-relative" style="min-height: 100vh;">
+          <div class="row mx-auto position-relative" id="pre-act-W">
+            <div class="col-lg-7 px-4 px-sm-5 pt-5 pt-sm-0">
+                <div class="px-0" style="line-height: 50px;">
+                    <p class="mb-0 px-0 instructions-title" style="font-weight: 400;">The</p>
+                    <p class="mb-0 px-0 bold instructions-title2">Learning Gallery</p>
+                    <p class="mb-0 px-0 bold text-center instructions-title2">Artworks</p>
+                </div>
+              </div>
+          <div class="pt-5 col-9">            
+            <p class="act-2-text px-4 px-sm-0" >You will learn more about 3 contemporary artworks that can be found in SAM’s The Learning Gallery. The Learning Gallery exhibits contemporary artworks from the <i style="word-spacing: 5px;">museum’s</i> permanent collection and special commissions.  </p>
+          </div>
+            <div class="col-9 offset-lg-3 offset-3 px-0">
+              <p class="act-2-text px-5 px-sm-0">
+                The artworks in SAM’s The Learning Gallery share different ideas of home, community, one’s identity and memories. The artworks help us reflect on what it means to live in a city like Singapore.
+              </p>
+              <!-- <div style="height: 250px;width: 250px;" class="position-absolute" id="shampoo"><img src="Assets/pre-act-2-instruc/shampoo.svg" class="w-100 h-100"></div> -->
+              <!-- <div style="width: 285px;height: 280px;position: relative;" class=" ml-auto overflow-hidden"></div> -->
+            </div>
+            <div class="position-relative overflow-hidden" style="height: 250px;width: 250px;">
+              <img src="Assets/pre-act-2-instruc/cloud.png" class="position-absolute" id="cloud">
+            </div>
+            <!-- <div class="position-relative" style="height: 250px;width: 250px;">
+              <img src="Assets/pre-act-2-instruc/shampoo.svg" class="position-absolute w-100 h-100" style="top: 0%;right: -5%;" id="shampoo">
+            </div> -->
+          </div>
+          <div class="text-center py-5 align-self-end col-12">
+              <a href="S2-qn-1-P1.html">
+                  <img src="Assets/act-2/nxtbtn.svg" style="max-width: 90px;">
+              </a>
+          </div>
+          <!-- <img src="Assets/general/logo.svg" style="max-width: 150px;max-height: 40px;top: 3%;right: 3%;" class="position-absolute"> -->
+          <img src="Assets/pre-act-2-instruc/bg2-circle-bl.svg" class="position-absolute" style="bottom: 0%;left: 0%;max-width: 106px;max-height: 120px;">
+          <img src="Assets/pre-act-2-instruc/bg2-circle-br.svg" class="position-absolute" style="bottom: 0%;right: 0%;max-width: 56px;max-height: 62px;">
+        </div>
+        <script>
+          // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+          let vh = window.innerHeight * 0.01;
+          // Then we set the value in the --vh custom property to the root of the document
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+          // We listen to the resize event
+          window.addEventListener('resize', () => {
+          // We execute the same script as before
+          let vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
+          });   
+       </script>
+  </body>
+</html>

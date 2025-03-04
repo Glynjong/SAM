@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="97" height="83.111" viewBox="0 0 97 83.111">
+  <g id="Group_1318" data-name="Group 1318" transform="translate(-139.5 -209.168)">
+    <path id="FontAwsome_chevron-circle-right_" data-name="FontAwsome (chevron-circle-right)" d="M30.5,8A22.5,22.5,0,1,1,8,30.5,22.5,22.5,0,0,1,30.5,8ZM40.834,28.958,28.54,16.664a2.168,2.168,0,0,0-3.076,0l-1.542,1.542a2.168,2.168,0,0,0,0,3.076L33.14,30.5l-9.218,9.218a2.168,2.168,0,0,0,0,3.076l1.542,1.542a2.168,2.168,0,0,0,3.076,0L40.834,32.042A2.179,2.179,0,0,0,40.834,28.958Z" transform="translate(157.5 201.168)" fill="#fff"/>
+    <text id="Next" transform="translate(139.5 258.28)" fill="#fff" font-size="21" font-family="Poppins-Bold, Poppins" font-weight="700"><tspan x="23.699" y="22">Next</tspan></text>
+  </g>
+</svg>
